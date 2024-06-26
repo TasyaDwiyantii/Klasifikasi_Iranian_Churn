@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding: 15px;
+            background: linear-gradient(to right, #ece5f0, #f7f1ff);
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #800080;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h3 {
+            text-align: center;
+            color: #6a0dad;
+            font-family: 'Poppins', sans-serif;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        form {
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group > div {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input[type="text"]:hover,
+        input[type="text"]:focus {
+            border-color: #9370db;
+            box-shadow: 0 0 5px rgba(147, 112, 219, 0.9);
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #9370db;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        input[type="submit"]:hover {
+            background-color: #6a0dad;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: rgba(240, 240, 240, 0.9);
+            color: #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/">
+        <h1>Churn Prediction Model Gaussian Naive Bayes</h1>
+        <div class="form-group">
+            <div>
+                <label for="call_failure">Call Failure:</label>
+                <input type="text" id="call_failure" name="call_failure" placeholder="Input jumlah kegagalan panggilan..." required>
+            </div>
+            <div>
+                <label for="complains">Complains:</label>
+                <input type="text" id="complains" name="complains" placeholder="Input jumlah keluhan..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="subscription_length">Subscription Length:</label>
+                <input type="text" id="subscription_length" name="subscription_length" placeholder="Input lama berlangganan..." required>
+            </div>
+            <div>
+                <label for="charge_amount">Charge Amount:</label>
+                <input type="text" id="charge_amount" name="charge_amount" placeholder="Input jumlah biaya..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="seconds_of_use">Seconds of Use:</label>
+                <input type="text" id="seconds_of_use" name="seconds_of_use" placeholder="Input jumlah detik penggunaan..." required>
+            </div>
+            <div>
+                <label for="frequency_of_use">Frequency of Use:</label>
+                <input type="text" id="frequency_of_use" name="frequency_of_use" placeholder="Input frekuensi penggunaan..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="frequency_of_sms">Frequency of SMS:</label>
+                <input type="text" id="frequency_of_sms" name="frequency_of_sms" placeholder="Input frekuensi SMS..." required>
+            </div>
+            <div>
+                <label for="distinct_called_number">Distinct Called Number:</label>
+                <input type="text" id="distinct_called_number" name="distinct_called_number" placeholder="Input jumlah nomor yang berbeda dipanggil..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="age_group">Age Group:</label>
+                <input type="text" id="age_group" name="age_group" placeholder="Input kelompok umur..." required>
+            </div>
+            <div>
+                <label for="tariff_plan">Tariff Plan:</label>
+                <input type="text" id="tariff_plan" name="tariff_plan" placeholder="Input rencana tarif..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" placeholder="Input status..." required>
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" placeholder="Input umur..." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="customer_value">Customer Value:</label>
+                <input type="text" id="customer_value" name="customer_value" placeholder="Input nilai pelanggan..." required>
+            </div>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if predicted_class is not none %}
+    <div class="result">
+        <h3>Hasil Prediksi:</h3>
+        <p>Prediksi churn untuk data yang diinputkan adalah: <strong>{{ predicted_class }}</strong></p>
+    </div>
+    {% endif %}
+
+    {% if error_message %}
+    <div class="result" style="background-color: rgba(176, 18, 18, 0.9);">
+        <h3>Pesan Kesalahan:</h3>
+        <p>{{ error_message }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
