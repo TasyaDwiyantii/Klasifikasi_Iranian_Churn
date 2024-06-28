@@ -1,23 +1,33 @@
 from flask import Flask, render_template, request
 import pandas as pd
 from sklearn.naive_bayes import GaussianNB
-from sklearn.model_selection import train_test_split
+import pickle
+import os
 
 app = Flask(__name__)
 
-# Load dataset from CSV file
-data_iranian = pd.read_csv("iranian_churn_clean.csv")
+MODEL_PATH = 'gnb_model.pkl'
 
-# Assuming 'Churn' is the target column and the rest are features
-X = data_iranian.drop(columns=['Churn'])
-y = data_iranian['Churn']
+if not os.path.exists(MODEL_PATH):
+    data_iranian = pd.read_csv("iranian_churn_clean.csv")
+    X = data_iranian.drop(columns=['Churn'])
+    y = data_iranian['Churn']
 
-# Split dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+    # Initialize Gaussian Naive Bayes model and train it
+    gnb_model = GaussianNB()
+    gnb_model.fit(X, y)
 
-# Initialize Gaussian Naive Bayes model and train it
-gnb_model = GaussianNB()
-gnb_model.fit(X_train, y_train)
+    # Save the model
+    with open(MODEL_PATH, 'wb') as f:
+        pickle.dump(gnb_model, f)
+
+    # Output to confirm training completion
+    print("Model saved.")
+else:
+    # Load the model
+    with open(MODEL_PATH, 'rb') as f:
+        gnb_model = pickle.load(f)
+    print("Model has been loaded from disk.")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
