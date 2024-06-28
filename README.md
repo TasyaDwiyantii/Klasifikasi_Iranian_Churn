@@ -1,11 +1,11 @@
 Tugas Matakuliah Penambangan Data(B) Semester 4
 
-2. Catatan Web Statis Tugas Uas Individu Wine Datasets :
+Catatan Web Statis Tugas Uas Individu Wine Datasets :
    
-Data : Wine (https://archive.ics.uci.edu/dataset/109/wine)
+Data : Iranian (https://archive.ics.uci.edu/dataset/563/iranian+churn+dataset)
 
-Web Statis(Catatan): https://adisahrulramadhan.github.io/datamining1/WineDatasetUAS.html
+Web Statis(Catatan): https://tasyadwiyantii.github.io/PENDAT/Iranian.html
 
-Deepnote : https://deepnote.com/workspace/dbmaning-e73c400f-1c0d-4ce8-9b8e-a20e73a317de/project/22-072-Adi-Sahrul-Ramadhan-bd7bfa42-6d65-487b-b353-2531ed4bd5d7/notebook/812efa58fb8f417c9a058cd8615fa9ed
+Deepnote : https://deepnote.com/workspace/22-022-tasya-dwiyanti-fc0bfc2d-f9b1-4a7b-a401-d97c205e7051/project/Welcome-23905452-9db2-4401-b17a-b0565c5b6809/notebook/Iranian-4d37dde32a454cab8aaacd0123e04598
 
-Link Implementasi App : https://adisahrul123.pythonanywhere.com/
+Link Implementasi App : [https://adisahrul123.pythonanywhere.com/](http://tasyadwiyanti.pythonanywhere.com/)
