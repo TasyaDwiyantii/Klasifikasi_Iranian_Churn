@@ -1,6 +1,6 @@
 Tugas Matakuliah Penambangan Data(B) Semester 4
 
-Catatan Web Statis Tugas Uas Individu Wine Datasets :
+Catatan Web Statis Tugas Uas Individu Iranian Churn Datasets :
    
 Data : Iranian (https://archive.ics.uci.edu/dataset/563/iranian+churn+dataset)
 
