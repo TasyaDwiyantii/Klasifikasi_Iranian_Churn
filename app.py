@@ -79,6 +79,11 @@ def index():
             error_message = "Invalid input: Please enter valid numbers."
         except Exception as e:
             error_message = f"An error occurred: {str(e)}"
+        if predicted_class == 0:
+                predicted_class = "0 (Churn)"
+        else:
+            predicted_class = "1 (Tidak Churn)"
+
 
     return render_template('index.html', predicted_class=predicted_class, input_data=input_data, error_message=error_message)
 
